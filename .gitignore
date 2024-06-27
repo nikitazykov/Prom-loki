@@ -1,0 +1,5 @@
+/.env
+/config/private
+/logs
+/production
+/web

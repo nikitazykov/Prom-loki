@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+  prometheus-org:
+    image: prom/prometheus:v2.44.0
+    container_name: prometheus-${PRJCT}
+    user: '${UID}:${GID}'
+    # ports:
+    #   - 127.0.0.1:909${ID}:9090
+    volumes:
+      - /server/${PRJCT}/config/prometheus/:/etc/prometheus
+      - /server/${PRJCT}/production/prometheus:/prometheus
+      - /server/${PRJCT}/logs/prometheus:/var/log
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+      - '--log.level=info'
+      - '--log.format=logfmt'
+    restart: always
+    networks:
+      prometheus:
+
+
+  loki-org:
+    image: grafana/loki:2.8.2
+    container_name: loki-${PRJCT}
+    # user: 10001:10001
+    # ports:
+    #   - :3100
+    volumes:
+      - /server/${PRJCT}/config/loki/loki-config.yaml:/etc/loki/local-config.yaml
+      - /server/${PRJCT}/logs/loki:/usr/local/loki/logs
+      - /server/${PRJCT}/production/loki:/loki
+    restart: always
+    networks:
+      loki:
+
+networks:
+  prometheus:
+    external: true
+  loki:
+    external: true

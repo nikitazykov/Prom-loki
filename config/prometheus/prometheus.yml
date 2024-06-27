@@ -1,0 +1,141 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: "Grafana-prometheus"
+    static_configs:
+      - targets: ["127.0.0.1:9090"]
+
+  # - job_name: "Node-exporter"
+  #   static_configs:
+  #     - targets: ["node-exporter.XXX.ru"]
+  #   scheme: https
+  #   basic_auth:
+  #     username: 'node-exporter'
+  #     password: 'XXXXX'
+  
+  # - job_name: "Blackbox-http-demo"
+  #   metrics_path: /probe
+  #   params:
+  #     module:
+  #     - http_2xx
+  #   relabel_configs:
+  #   - source_labels:
+  #     - __address__
+  #     target_label: __param_target
+  #   - source_labels:
+  #     - __param_target
+  #     target_label: instance
+  #   - replacement: blackbox:9115
+  #     target_label: __address__
+  #   static_configs:
+  #   - targets:
+  #     - https://demo.XXX.ru
+
+  # - job_name: "Blackbox-http-prod"
+  #   metrics_path: /probe
+  #   params:
+  #     module:
+  #     - http_2xx
+  #   relabel_configs:
+  #   - source_labels:
+  #     - __address__
+  #     target_label: __param_target
+  #   - source_labels:
+  #     - __param_target
+  #     target_label: instance
+  #   - replacement: blackbox:9115
+  #     target_label: __address__
+  #   static_configs:
+  #   - targets:
+  #     - https://prod.XXX.ru
+      
+  # - job_name: "Blackbox-http-dev1"
+  #   metrics_path: /probe
+  #   params:
+  #     module:
+  #     - http_2xx
+  #   relabel_configs:
+  #   - source_labels:
+  #     - __address__
+  #     target_label: __param_target
+  #   - source_labels:
+  #     - __param_target
+  #     target_label: instance
+  #   - replacement: blackbox:9115
+  #     target_label: __address__
+  #   static_configs:
+  #   - targets:
+  #     - https://dev1.XXX.ru
+      
+  # - job_name: "Blackbox-http-dev2"
+  #   metrics_path: /probe
+  #   params:
+  #     module:
+  #     - http_2xx
+  #   relabel_configs:
+  #   - source_labels:
+  #     - __address__
+  #     target_label: __param_target
+  #   - source_labels:
+  #     - __param_target
+  #     target_label: instance
+  #   - replacement: blackbox:9115
+  #     target_label: __address__
+  #   static_configs:
+  #   - targets:
+  #     - https://dev2.XXX.ru
+      
+  # - job_name: "Blackbox-http-dev3"
+  #   metrics_path: /probe
+  #   params:
+  #     module:
+  #     - http_2xx
+  #   relabel_configs:
+  #   - source_labels:
+  #     - __address__
+  #     target_label: __param_target
+  #   - source_labels:
+  #     - __param_target
+  #     target_label: instance
+  #   - replacement: blackbox:9115
+  #     target_label: __address__
+  #   static_configs:
+  #   - targets:
+  #     - https://dev3.XXX.ru
+
+  # - job_name: "Blackbox-http-dev4"
+  #   metrics_path: /probe
+  #   params:
+  #     module:
+  #     - http_2xx
+  #   relabel_configs:
+  #   - source_labels:
+  #     - __address__
+  #     target_label: __param_target
+  #   - source_labels:
+  #     - __param_target
+  #     target_label: instance
+  #   - replacement: blackbox:9115
+  #     target_label: __address__
+  #   static_configs:
+  #   - targets:
+  #     - https://dev4.XXX.ru
+      
+  # - job_name: "Blackbox-http-dev5"
+  #   metrics_path: /probe
+  #   params:
+  #     module:
+  #     - http_2xx
+  #   relabel_configs:
+  #   - source_labels:
+  #     - __address__
+  #     target_label: __param_target
+  #   - source_labels:
+  #     - __param_target
+  #     target_label: instance
+  #   - replacement: blackbox:9115
+  #     target_label: __address__
+  #   static_configs:
+  #   - targets:
+  #     - https://dev5.XXX.ru
